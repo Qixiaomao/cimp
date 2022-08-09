@@ -10,7 +10,7 @@ def sign_or_out(request):
     if request.method == 'POST':
         request.params = json.loads(request.body)
     else:
-        return JsonResponse({'ret':1,'msg':'仅支持POST请求'})
+        return json_seq({'ret':1,'msg':'仅支持POST请求'})
     if request.params['action'] == 'signin':
         return signin(request,request.params)
     elif request.params['action'] == 'signout':
